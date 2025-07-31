@@ -50,7 +50,7 @@ helm install keycloak ./bitnami/keycloak \
 1	KC_DB_URL=jdbc:postgresql://...	JDBC connection string
 2–3	KC_DB_USERNAME, KC_DB_PASSWORD	Thông tin xác thực đến DB
 4	KC_HOSTNAME=keycloak.com.vn	Tên miền mà Keycloak phản hồi
-5	KC_PROXY=edge	Bật chế độ proxy edge để xử lý SSL từ outside
+5	KC_PROXY=edge	Bật chế độ proxy edge để xử lý SSL từ outside, sau đó sẽ call http nội bộ
 6	KC_HTTP_ENABLED=true	Cho phép cổng HTTP 8080 (cho probe hoạt động)
 7	KC_HOSTNAME_STRICT=false	Không bắt strict match hostname
 8–9	KC_ADMIN, KC_ADMIN_PASSWORD	Tương tự phần auth.*, nhưng set thêm để đảm bảo
