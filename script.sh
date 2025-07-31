@@ -44,3 +44,15 @@ helm install keycloak ./bitnami/keycloak \
   --set extraEnvVars[11].value="/opt/bitnami/keycloak/certs/tls.crt" \
   --set extraEnvVars[12].name="KC_HTTPS_CERTIFICATE_KEY_FILE" \
   --set extraEnvVars[12].value="/opt/bitnami/keycloak/certs/tls.key"
+
+
+0	KC_DB=postgres	Sử dụng PostgreSQL làm backend DB
+1	KC_DB_URL=jdbc:postgresql://...	JDBC connection string
+2–3	KC_DB_USERNAME, KC_DB_PASSWORD	Thông tin xác thực đến DB
+4	KC_HOSTNAME=keycloak.com.vn	Tên miền mà Keycloak phản hồi
+5	KC_PROXY=edge	Bật chế độ proxy edge để xử lý SSL từ outside
+6	KC_HTTP_ENABLED=true	Cho phép cổng HTTP 8080 (cho probe hoạt động)
+7	KC_HOSTNAME_STRICT=false	Không bắt strict match hostname
+8–9	KC_ADMIN, KC_ADMIN_PASSWORD	Tương tự phần auth.*, nhưng set thêm để đảm bảo
+10	KC_ENABLE_PRODUCTION=true	Chạy ở chế độ production (bắt buộc nếu dùng TLS)
+11–12	KC_HTTPS_CERTIFICATE_FILE, KC_HTTPS_CERTIFICATE_KEY_FILE	Đường dẫn đến .crt và .key đã mount vào container từ secret
